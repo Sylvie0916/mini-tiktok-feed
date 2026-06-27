@@ -1,6 +1,6 @@
 let posts = [
-  { text: "Welcome to my feed 🚀", likes: 2 },
-  { text: "Coding like TikTok engineer 💻", likes: 5 }
+  { text: "Welcome to Mini TikTok 🚀", likes: 2 },
+  { text: "Second post 💻", likes: 5 }
 ];
 
 function renderFeed() {
@@ -18,18 +18,15 @@ function renderFeed() {
 
     feed.appendChild(div);
   });
+
+  document.getElementById("postCount").innerText = posts.length;
 }
 
 function createPost() {
   const input = document.getElementById("postInput");
-
   if (!input.value.trim()) return;
 
-  posts.unshift({
-    text: input.value,
-    likes: 0
-  });
-
+  posts.unshift({ text: input.value, likes: 0 });
   input.value = "";
   renderFeed();
 }
@@ -37,6 +34,20 @@ function createPost() {
 function likePost(i) {
   posts[i].likes++;
   renderFeed();
+}
+
+/* 🔥 TAB SYSTEM */
+function showPage(page) {
+  document.getElementById("feedPage").classList.add("hidden");
+  document.getElementById("profilePage").classList.add("hidden");
+
+  if (page === "feed") {
+    document.getElementById("feedPage").classList.remove("hidden");
+  }
+
+  if (page === "profile") {
+    document.getElementById("profilePage").classList.remove("hidden");
+  }
 }
 
 renderFeed();
