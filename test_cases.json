@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Get Post",
+    "url": "https://jsonplaceholder.typicode.com/posts/1",
+    "expected_status": 200
+  },
+  {
+    "name": "Invalid Post",
+    "url": "https://jsonplaceholder.typicode.com/posts/999999",
+    "expected_status": 404
+  }
+]
